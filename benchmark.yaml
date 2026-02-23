@@ -65,6 +65,8 @@ stages:
     outputs:
       - id: timings.json
         path: "{dataset}.timings.json"
+      - id: resolutions.json
+        path: "{dataset}.resolutions.json"
       - id: cluster.tsv
         path: "{dataset}.clusters.tsv"
       - id: pca.tsv
@@ -78,11 +80,11 @@ stages:
           commit: main
         parameters:
           - method_name: ["seurat", "osca", "scrapper"]
-            resolution: [0.06, 0.08, 0.1, 0.12, 0.14, 0.16]
+            n_cluster: [5, 7, 9, 11]
             filter: ["manual", "auto"]
-            n_comp: [30, 50]
-            n_neig: [5, 10, 15]
-            n_hvg: [500, 750, 1000]
+            n_comp: [30, 50, 70]
+            n_neig: [5, 10, 15, 20]
+            n_hvg: [500, 750, 1000, 1250]
       - id: pipelines-py
         name: "run python pipelines"
         software_environment: "pipelines-py_apptainer"
@@ -91,17 +93,18 @@ stages:
           commit: main
         parameters:
           - method_name: ["scanpy", "rapids"]
-            resolution: [0.06, 0.08, 0.1, 0.12, 0.14, 0.16]
+            n_cluster: [5, 7, 9, 11]
             filter: ["manual"]
-            n_comp: [30, 50]
-            n_neig: [5, 10, 15]
-            n_hvg: [500, 750, 1000]
+            n_comp: [30, 50, 70]
+            n_neig: [5, 10, 15, 20]
+            n_hvg: [500, 750, 1000, 1250]
   - id: metrics
     inputs:
       - data.clusters_truth
       - pca.tsv
       - cluster.tsv
       - timings.json
+      - resolutions.json
     outputs:
       - id: metrics.json
         path: "{dataset}.metrics.json"
