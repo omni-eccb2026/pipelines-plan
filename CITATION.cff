@@ -6,6 +6,20 @@ authors:
   - family-names: Choudhury
     given-names: Atreya
     orcid: "https://orcid.org/0009-0003-4975-0515"
+  - family-names: Kitak
+    given-names: Tom
+    orcid: "https://orcid.org/0009-0004-1529-4459"
+  - family-names: Carrillo
+    given-names: Ben
+    orcid: "https://orcid.org/0009-0003-5704-4151"
+  - family-names: Emons
+    given-names: Martin
+    orcid: "https://orcid.org/0009-0000-5219-5311"
+  - family-names: Gunz
+    given-names: Samuel
+    orcid: "https://orcid.org/0000-0002-8909-0932"
+  - family-names: Meara
+    given-names: Aidan
   - family-names: Robinson
     given-names: Mark
     orcid: "https://orcid.org/0000-0002-3048-5518"
@@ -37,6 +51,21 @@ references:
       - family-names: Risso
         given-names: Davide
         orcid: "https://orcid.org/0000-0001-8508-5012"
-    repository-code: "https://github.com/billila/pca_scwf_paper"
     title: "Benchmarking large-scale single-cell RNA-seq analysis"
+    repository-code: "https://github.com/billila/pca_scwf_paper"
     doi: 10.1101/2025.10.28.681564
+  - type: software
+    title: "datasets"
+    repository-code: "https://github.com/scrna-bench/datasets"
+  - type: software
+    title: "pipelines-r"
+    repository-code: "https://github.com/scrna-bench/pipelines-r"
+  - type: software
+    title: "pipelines-py"
+    repository-code: "https://github.com/scrna-bench/pipelines-py"
+  - type: software
+    title: "metrics"
+    repository-code: "https://github.com/scrna-bench/metrics"
+  - type: software
+    title: "pipelines-report"
+    repository-code: "https://github.com/scrna-bench/pipelines-report"

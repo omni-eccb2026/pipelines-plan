@@ -22,7 +22,7 @@ metric_collectors:
     software_environment: r_apptainer
     repository:
       url: https://github.com/scrna-bench/pipelines-report
-      commit: a13c22b
+      commit: "8fc4e6e"
     inputs:
       - metrics.metrics
     outputs:
@@ -46,7 +46,7 @@ stages:
         software_environment: r_apptainer
         repository:
           url: https://github.com/scrna-bench/datasets
-          commit: 960d54b
+          commit: "f37110c"
         parameters:
           - dataset_name: ["sc-mix", "be1", "cb"]
           # - dataset_name: ["sc-mix", "be1", "cb", "1.3m"]
@@ -68,7 +68,7 @@ stages:
         software_environment: r_apptainer
         repository:
           url: https://github.com/scrna-bench/pipelines-r
-          commit: 9731100
+          commit: "57b3c29"
         parameters:
           - method_name: ["seurat", "osca", "scrapper"]
             n_cluster: [5, 7, 9, 11]
@@ -81,7 +81,7 @@ stages:
         software_environment: py_apptainer_rsc_0.14.1
         repository:
           url: https://github.com/scrna-bench/pipelines-py
-          commit: 4abf1ab
+          commit: "82ac8ac"
         parameters:
           - method_name: ["scanpy", "rapids"]
             n_cluster: [5, 7, 9, 11]
@@ -94,7 +94,7 @@ stages:
         software_environment: py_apptainer_rsc_0.13.5
         repository:
           url: https://github.com/scrna-bench/pipelines-py
-          commit: 4abf1ab
+          commit: "82ac8ac"
         parameters:
           - method_name: "rapids"
             n_cluster: [5, 7, 9, 11]
@@ -118,4 +118,4 @@ stages:
         software_environment: py_apptainer_rsc_0.14.1
         repository:
           url: https://github.com/scrna-bench/metrics
-          commit: eceb84e
+          commit: "3d12c3b"
