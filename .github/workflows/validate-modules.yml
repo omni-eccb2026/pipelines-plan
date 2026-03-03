@@ -36,11 +36,20 @@ jobs:
       - name: Extract and clone module repositories
         run: |
           mkdir -p modules
+          : > modules/repos_to_validate.txt
+          : > modules/seen_repo_commits.txt
 
-          # Extract unique repository URLs and commits from benchmark.yaml
-          yq eval '.stages[].modules[] | [.repository.url, .repository.commit, .id] | join(" ")' benchmark.yaml | sort -u | while read -r url commit module_id; do
-            if [ -n "$url" ] && [ -n "$commit" ]; then
-              # Create a directory name from the URL
+          # Extract repository URLs and commits from benchmark.yaml.
+          # Skip duplicates explicitly with a seen repo+commit list.
+          yq eval '.stages[].modules[] | [.repository.url, .repository.commit] | join("\t")' benchmark.yaml | while IFS=$'\t' read -r url commit; do
+            if [ -n "$url" ] && [ "$url" != "null" ] && [ -n "$commit" ] && [ "$commit" != "null" ]; then
+              key="${url}@${commit}"
+              if grep -Fxq "$key" modules/seen_repo_commits.txt; then
+                echo "Skipping duplicate repository+commit: $key"
+                continue
+              fi
+              echo "$key" >> modules/seen_repo_commits.txt
+
               repo_name=$(basename "$url" .git)
               clone_dir="modules/${repo_name}_${commit}"
 

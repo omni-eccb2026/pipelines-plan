@@ -73,11 +73,13 @@ apptainer push <your-image>.sif oras://quay.io/omnibenchmark/<repo-name>:<tag>
 ```
 
 **Example:**
+
 ```bash
-apptainer push scanpy_full.sif oras://quay.io/omnibenchmark/scrna-bench:2026-01-09
+apptainer push example.sif oras://quay.io/omnibenchmark/scrna-bench:2026-01-09
 ```
 
 **Tag Conventions:**
+
 - Date format shown: `YYYY-MM-DD`
 - Other tags: `latest`, `v1.0`, `stable`, etc.
 
@@ -103,7 +105,7 @@ To update an image with the same tag (e.g., fixing a bug in `latest`):
 2. Push with the same tag - this will **overwrite** the existing image:
 
 ```bash
-apptainer push scanpy_full.sif oras://quay.io/omnibenchmark/scrna-bench:latest
+apptainer push myimage.sif oras://quay.io/omnibenchmark/scrna-bench:latest
 ```
 
 ---

@@ -1,5 +1,8 @@
 Bootstrap: docker
-From: rapidsai/base:26.02a-cuda12-py3.12
+From: rapidsai/base:26.02-cuda12-py3.12
+
+%arguments
+    RAPIDS_SINGLECELL_VERSION=0.14.1
 
 %labels
     Author "Aidan Meara, Tom Kitak"
@@ -80,7 +83,7 @@ From: rapidsai/base:26.02a-cuda12-py3.12
         legacy-api-wrap==1.4.1 \
         unicodedata2==16.0.0 \
         scanpy==1.10.4 \
-        rapids-singlecell==0.13.5
+        rapids-singlecell=={{ RAPIDS_SINGLECELL_VERSION }}
 
     # Cleanup
     apt-get purge -y \
