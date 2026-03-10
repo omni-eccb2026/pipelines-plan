@@ -22,7 +22,7 @@ metric_collectors:
     software_environment: r_apptainer
     repository:
       url: https://github.com/scrna-bench/pipelines-report
-      commit: "8fc4e6e"
+      commit: "6b7deec"
     inputs:
       - metrics.metrics
     outputs:
@@ -40,19 +40,22 @@ stages:
         path: "{dataset}.h5ad"
       - id: data.clusters_truth
         path: "{dataset}.clusters_truth.tsv"
+      - id: data.clusters_truth_num
+        path: "{dataset}.clusters_truth_num.txt"
     modules:
       - id: datasets-r
         name: loads scRNA datasets
         software_environment: r_apptainer
         repository:
           url: https://github.com/scrna-bench/datasets
-          commit: "f37110c"
+          commit: "782b517"
         parameters:
           - dataset_name: ["sc-mix", "be1", "cb"]
           # - dataset_name: ["sc-mix", "be1", "cb", "1.3m"]
   - id: methods
     inputs:
       - data.h5ad
+      - data.clusters_truth_num
     outputs:
       - id: methods.timings
         path: "{dataset}.timings.json"
@@ -68,10 +71,10 @@ stages:
         software_environment: r_apptainer
         repository:
           url: https://github.com/scrna-bench/pipelines-r
-          commit: "57b3c29"
+          commit: "5cb37b8"
         parameters:
           - method_name: ["seurat", "osca", "scrapper"]
-            n_cluster: [5, 7, 9, 11]
+            d_cluster: [-2, -1, 0, 1, 2]
             filter: ["manual", "auto"]
             n_comp: [20, 30, 50]
             n_neig: [10, 15, 20, 30]
@@ -81,10 +84,10 @@ stages:
         software_environment: py_apptainer_rsc_0.14.1
         repository:
           url: https://github.com/scrna-bench/pipelines-py
-          commit: "82ac8ac"
+          commit: "b848e9e"
         parameters:
           - method_name: ["scanpy", "rapids"]
-            n_cluster: [5, 7, 9, 11]
+            d_cluster: [-2, -1, 0, 1, 2]
             filter: "manual"
             n_comp: [20, 30, 50]
             n_neig: [10, 15, 20, 30]
@@ -94,10 +97,10 @@ stages:
         software_environment: py_apptainer_rsc_0.13.5
         repository:
           url: https://github.com/scrna-bench/pipelines-py
-          commit: "82ac8ac"
+          commit: "b848e9e"
         parameters:
           - method_name: "rapids"
-            n_cluster: [5, 7, 9, 11]
+            d_cluster: [-2, -1, 0, 1, 2]
             filter: "manual"
             n_comp: 30
             n_neig: 20
@@ -118,4 +121,4 @@ stages:
         software_environment: py_apptainer_rsc_0.14.1
         repository:
           url: https://github.com/scrna-bench/metrics
-          commit: "3d12c3b"
+          commit: "99f4824"
