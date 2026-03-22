@@ -22,7 +22,7 @@ metric_collectors:
     software_environment: r_apptainer
     repository:
       url: https://github.com/scrna-bench/pipelines-report
-      commit: "6b7deec"
+      commit: "f6a4f9b"
     inputs:
       - metrics.metrics
     outputs:
@@ -59,8 +59,8 @@ stages:
     outputs:
       - id: methods.timings
         path: "{dataset}.timings.json"
-      - id: methods.resolutions
-        path: "{dataset}.resolutions.json"
+      - id: methods.clustering_info
+        path: "{dataset}.clustering_info.json"
       - id: methods.clusters
         path: "{dataset}.clusters.tsv"
       - id: methods.pca
@@ -71,7 +71,7 @@ stages:
         software_environment: r_apptainer
         repository:
           url: https://github.com/scrna-bench/pipelines-r
-          commit: "5cb37b8"
+          commit: "33129f6"
         parameters:
           - method_name: ["seurat", "osca", "scrapper"]
             d_cluster: [-2, -1, 0, 1, 2]
@@ -84,7 +84,7 @@ stages:
         software_environment: py_apptainer_rsc_0.14.1
         repository:
           url: https://github.com/scrna-bench/pipelines-py
-          commit: "b848e9e"
+          commit: "f29da4e"
         parameters:
           - method_name: ["scanpy", "rapids"]
             d_cluster: [-2, -1, 0, 1, 2]
@@ -97,7 +97,7 @@ stages:
         software_environment: py_apptainer_rsc_0.13.5
         repository:
           url: https://github.com/scrna-bench/pipelines-py
-          commit: "b848e9e"
+          commit: "f29da4e"
         parameters:
           - method_name: "rapids"
             d_cluster: [-2, -1, 0, 1, 2]
@@ -111,7 +111,7 @@ stages:
       - methods.pca
       - methods.clusters
       - methods.timings
-      - methods.resolutions
+      - methods.clustering_info
     outputs:
       - id: metrics.metrics
         path: "{dataset}.metrics.json"
@@ -121,4 +121,4 @@ stages:
         software_environment: py_apptainer_rsc_0.14.1
         repository:
           url: https://github.com/scrna-bench/metrics
-          commit: "99f4824"
+          commit: "a97c3d8"

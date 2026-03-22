@@ -6,6 +6,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ## Upcoming
 
+## [v1.1](https://github.com/scrna-bench/pipelines-plan/releases/tag/v1.1)
+
+### Added
+
+- reparameterize `n_cluster` (number of clusters) with `d_cluster` (delta number of clusters with respect to true number of clusters for a dataset)
+- average leiden and louvain times across multiple function calls
+- add GPU load times for the `rapids` pipeline
+
 ## [v1.0](https://github.com/scrna-bench/pipelines-plan/releases/tag/v1.0)
 
 A benchmark of single-cell RNAseq analysis pipelines focused on preprocessing.

@@ -1,5 +1,7 @@
 # Benchmarking scRNA pipelines
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18848104.svg)](https://doi.org/10.5281/zenodo.18848104)
+
 A scRNA-seq pipelines benchmark created using [OmniBenchmark](https://omnibenchmark.org).
 
 ## Reproducing
