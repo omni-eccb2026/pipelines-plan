@@ -1,0 +1,44 @@
+name: osta-bioc320
+# Minimal Bioconductor 3.20 (R 4.4) environment
+#
+#   mamba env create -f osta-bioc320.yml
+#   conda activate osta-bioc320
+#
+# Covers:
+#   SingleCellExperiment, scuttle, AnnotationDbi, scran, scater, bluster,
+#   EnsDb.Hsapiens.v75, argparse, jsonlite, zellkonverter
+
+channels:
+  - conda-forge
+  - bioconda
+
+dependencies:
+  - r-base=4.4
+
+  # ---- Bioconductor 3.20 ----
+  - bioconductor-singlecellexperiment=1.28.0
+  - bioconductor-scuttle=1.16.0
+  - bioconductor-scran=1.34.0
+  - bioconductor-scater=1.34.1
+  - bioconductor-bluster=1.16.0
+  - bioconductor-annotationdbi=1.68.0
+  - bioconductor-ensembldb=2.30.0
+  - bioconductor-ensdb.hsapiens.v75=2.99.0
+  - bioconductor-zellkonverter=1.16.0
+
+  # ---- CRAN ----
+  - r-argparse
+  - r-jsonlite
+
+  # ---- Python side used by zellkonverter ----
+  - python=3.12
+  - anndata
+  - h5py
+  - scipy
+  - pandas
+
+# zellkonverter normally provisions its own python via basilisk on first use.
+# To make it reuse this env's python instead, export before starting R:
+#   export BASILISK_EXTERNAL_DIR=$CONDA_PREFIX/share/basilisk
+#   export RETICULATE_PYTHON=$CONDA_PREFIX/bin/python
+# (or just let basilisk create its own env once - it is cached afterwards)
