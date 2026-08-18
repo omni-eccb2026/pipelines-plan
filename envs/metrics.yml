@@ -1,0 +1,34 @@
+name: py-metrics
+# Minimal environment for the clustering-metrics script.
+# Everything else in the import block (argparse, json, pathlib, typing)
+# is Python standard library - no packages needed.
+#
+#   mamba env create -f py-metrics.yml
+#   conda activate py-metrics
+#
+# Versions match the pins used in envs/py.def so results stay comparable.
+
+channels:
+  - conda-forge
+
+dependencies:
+  - python=3.12
+  - pip=25.0.1
+
+  # pandas
+  - pandas=2.2.3
+  - python-dateutil=2.9.0.post0
+  - pytz=2024.1
+  - tzdata
+
+  # sklearn.metrics
+  - scikit-learn=1.6.1
+  - numpy=2.1.3
+  - scipy=1.15.2
+  - joblib=1.4.2
+  - threadpoolctl=3.5.0
+
+variables:
+  LC_ALL: C.UTF-8
+  LANG: C.UTF-8
+
