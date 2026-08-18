@@ -55,7 +55,7 @@ stages:
         software_environment: r_osta
         repository:
           url: https://github.com/scrna-bench/datasets
-          commit: "782b517"
+          commit: pkg-simplify
         parameters:
           - dataset_name: ["sc-mix"]
           # - dataset_name: ["sc-mix", "be1", "cb", "1.3m"]
@@ -97,7 +97,7 @@ stages:
         software_environment: scanpy
         repository:
           url: https://github.com/scrna-bench/pipelines-py
-          commit: "f29da4e"
+          commit: pkg-simplify
         parameters:
           - method_name: ["scanpy"]
             d_cluster: [0]

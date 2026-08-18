@@ -28,6 +28,7 @@ dependencies:
 
   # ---- CRAN ----
   - r-argparse
+  - r-stringr
   - r-jsonlite
 
   # ---- Python side used by zellkonverter ----
