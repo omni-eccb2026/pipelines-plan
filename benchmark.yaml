@@ -14,13 +14,13 @@ provenance:
 software_backend: conda
 software_environments:
   r_osta:
-    name: R/BioC osta conda env 
+    name: conda env for R/BioC + osta packages
     conda: envs/r_osta.yml
   scanpy:
-    name: scanpy Python conda env
+    name: conda env for Python + scanpy packages
     conda: envs/scanpy.yml
   metrics:
-    name: metrics Python conda env
+    name: conda env for Python + metrics packages
     conda: envs/metrics.yml
 
 #metric_collectors:
@@ -52,7 +52,7 @@ stages:
     modules:
       - id: datasets-r
         name: loads scRNA datasets
-        software_environment: r_apptainer
+        software_environment: r_osta
         repository:
           url: https://github.com/scrna-bench/datasets
           commit: "782b517"
