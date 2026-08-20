@@ -8,7 +8,7 @@ version: "1.2"
 api_version: "0.4.0"
 
 provenance:
-  canonical_url: https://raw.githubusercontent.com/scrna-bench/pipelines-plan/refs/heads/eccb2026/benchmark.yaml
+  canonical_url: https://raw.githubusercontent.com/omni-eccb2026/pipelines-plan/refs/heads/main/benchmark.yaml
 
 # Available software environments
 software_backend: conda
