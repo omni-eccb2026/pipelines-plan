@@ -26,7 +26,7 @@ conda activate omni
 git clone https://github.com/omni-eccb2026/pipelines-plan.git
 cd pipelines-plan
 ob validate plan benchmark.yaml
-ob run benchmark.yaml -c 10
+ob run benchmark.yaml -c 2
 
 #ob run benchmark.yaml -- --apptainer-args='--nv'  # not needed for ECCB workshop
 ```
