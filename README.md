@@ -17,7 +17,7 @@ ob --version                     ## verify installation
 To run a benchmark (e.g., if you've created the conda environment but are in a new shell), you will need to have a software environment with `ob` activated (e.g., with `conda`):
 
 ```{bash}
-conda activate omni            ## activate env with `ob`
+conda activate omni            ## activate env
 ```
 
 ## Quick start
