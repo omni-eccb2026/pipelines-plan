@@ -11,7 +11,7 @@ conda create -n omni python=3.12 -y
 conda activate omni
 pip install omnibenchmark==0.6.0
 
-ob --version                     ## verify installation
+ob --version
 ```
 
 To run a benchmark (e.g., if you've created the conda environment but are in a new shell), you will need to have a software environment with `ob` activated (e.g., with `conda`):
