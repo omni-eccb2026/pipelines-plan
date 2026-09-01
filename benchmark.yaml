@@ -62,7 +62,6 @@ stages:
   - id: methods
     inputs:
       - data.h5ad
-      - data.clusters_truth_num
     outputs:
       - id: methods.timings
         path: "{dataset}.timings.json"
