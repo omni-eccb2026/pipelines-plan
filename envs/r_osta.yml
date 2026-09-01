@@ -6,11 +6,13 @@ name: osta-bioc320
 #
 # Covers:
 #   SingleCellExperiment, scuttle, AnnotationDbi, scran, scater, bluster,
-#   EnsDb.Hsapiens.v75, argparse, jsonlite, zellkonverter
+#   EnsDb.Hsapiens.v75, argparse, jsonlite, zellkonverter,
+#   DropletUtils, GEOquery, SingleCellMultiModal, TENxBrainData
 
 channels:
   - conda-forge
   - bioconda
+  - https://prefix.dev/almost-conductor
 
 dependencies:
   - r-base=4.4
@@ -25,6 +27,12 @@ dependencies:
   - bioconductor-ensembldb=2.30.0
   - bioconductor-ensdb.hsapiens.v75=2.99.0
   - bioconductor-zellkonverter=1.16.0
+
+  # ---- dataset loaders (datasets/run.R) ----
+  - bioconductor-dropletutils=1.26.0        # be1
+  - bioconductor-geoquery=2.74.0            # be1
+  - bioconductor-singlecellmultimodal=1.18.0  # cb
+  - bioconductor-tenxbraindata=1.26.0       # 1.3m
 
   # ---- CRAN ----
   - r-argparse
