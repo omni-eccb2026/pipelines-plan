@@ -78,7 +78,7 @@ stages:
         software_environment: r_osta
         repository:
           url: https://github.com/omni-eccb2026/pipelines-r
-          commit: 33129f6
+          commit: main
         parameters:
           - method_name: ["osca"]
             d_cluster: [0]
