@@ -70,7 +70,7 @@ stages:
         path: "{dataset}.clustering_info.json"
       - id: methods.clusters
         path: "{dataset}.clusters.tsv"
-      - id: methods.pca
+      - id: methods.pcs
         path: "{dataset}.pca.tsv"
     modules:
       - id: osta-r
