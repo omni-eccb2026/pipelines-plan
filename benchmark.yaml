@@ -84,7 +84,7 @@ stages:
             d_cluster: [0]
             filter: ["manual"]
             n_comp: [30]
-            n_neig: [20]
+            n_neighbors: [20]
             n_hvg: [1500]
           #- method_name: ["seurat", "osca", "scrapper"]
           #  d_cluster: [-2, -1, 0, 1, 2]
