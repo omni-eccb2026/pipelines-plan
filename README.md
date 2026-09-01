@@ -1,5 +1,7 @@
 # Benchmarking scRNA pipelines (simplified for ECCB 2026 Workshop)
 
+[![Open in OBEditor](https://img.shields.io/badge/open-obeditor-0078d4?style=flat)](https://omnibenchmark.github.io/obeditor?url=https://github.com/omni-eccb2026/pipelines-plan/blob/main/benchmark.yaml)
+
 This repo contains a single-cell RNA-seq (scRNA-seq) pipelines benchmark created using [OmniBenchmark](https://omnibenchmark.org), but trimmed for the purposes of the [ECCB 2026 workshop](https://eccb2026.org/tutorials-workshops#w1-constructing-standardized-benchmarks-using-omnibenchmark).
 
 ## Installing `ob` (Omnibenchmark)
