@@ -69,7 +69,7 @@ stages:
       - id: methods.clustering_info
         path: "{dataset}.clustering_info.json"
       - id: methods.clusters
-        path: "{dataset}.clusters.tsv"
+        path: "{dataset}.clusters.csv"
       - id: methods.pca
         path: "{dataset}.pca.tsv"
     modules:
