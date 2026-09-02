@@ -22,23 +22,42 @@ software_environments:
   metrics:
     name: conda env for Python + metrics packages
     conda: envs/metrics.yml
+  r_report:
+    name: conda env for R + rmarkdown, for the report collector
+    conda: envs/r_report.yml
 
-#metric_collectors:
-#  - id: report
-#    name: Gathers and processes metrics from different pipelines
-#    software_environment: r_apptainer
-#    repository:
-#      url: https://github.com/scrna-bench/pipelines-report
-#      commit: "f6a4f9b"
-#    inputs:
-#      - metrics.metrics
-#    outputs:
-#      - id: report.metrics
-#        path: "report/metrics.tsv"
-#      - id: report.timings
-#        path: "report/timings.tsv"
-#      - id: report.plots
-#        path: "report/plots.html"
+# Runs, produces report/metrics.tsv and report/timings.tsv, then dies rendering
+# report/plots.html. That last step is NOT an environment problem -- see
+# envs/r_report.yml. pipelines-report at f6a4f9b (its newest commit) hard-codes
+# the previous generation of module ids:
+#
+#   metrics_long_new <- metrics_long %>%
+#     filter(module %in% c("pipelines-r", "pipelines-py"))    # plots.Rmd:88-90
+#
+# Our module ids are `osta-r` and `scanpy`, so every plotting frame is empty and
+# ggplot aborts with "Faceting variables must have at least one value.". Two
+# chunks additionally filter on the paper's full sweep (n_comp 30 and 50,
+# n_hvg 1000) while this plan runs n_comp 30, n_hvg 1500 -- so even after the id
+# filter is fixed, the grid has to cover those values for the facets to fill.
+#
+# Fixing it means forking pipelines-report and re-pinning, which is exercise 23's
+# shape, not this one's.
+metric_collectors:
+  - id: report
+    name: Gathers and processes metrics from different pipelines
+    software_environment: r_report
+    repository:
+      url: https://github.com/scrna-bench/pipelines-report
+      commit: "f6a4f9b"
+    inputs:
+      - metrics.metrics
+    outputs:
+      - id: report.metrics
+        path: "report/metrics.tsv"
+      - id: report.timings
+        path: "report/timings.tsv"
+      - id: report.plots
+        path: "report/plots.html"
 
 stages:
   - id: datasets
