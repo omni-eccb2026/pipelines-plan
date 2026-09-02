@@ -28,8 +28,8 @@ software_environments:
 #    name: Gathers and processes metrics from different pipelines
 #    software_environment: r_apptainer
 #    repository:
-#      url: https://github.com/scrna-bench/pipelines-report
-#      commit: "f6a4f9b"
+#      url: https://github.com/omni-eccb2026/pipelines-report
+#      commit: "404d023"
 #    inputs:
 #      - metrics.metrics
 #    outputs:
