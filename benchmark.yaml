@@ -55,7 +55,7 @@ stages:
         software_environment: r_osta
         repository:
           url: https://github.com/omni-eccb2026/datasets
-          commit: c6da301
+          commit: 65d18ae
         parameters:
           - dataset_name: ["sc-mix"]
           # - dataset_name: ["sc-mix", "be1", "cb", "1.3m"]
