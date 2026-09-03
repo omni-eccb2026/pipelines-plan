@@ -105,13 +105,35 @@ stages:
             n_comp: [30]
             n_neig: [20]
             n_hvg: [1500]
+  - id: passthrough
+    inputs:
+      - methods.timings
+      - methods.clustering_info
+      - methods.clusters
+      - methods.pca
+    outputs:
+      - id: passthrough.timings
+        path: "{dataset}.timings.json"
+      - id: passthrough.clustering_info
+        path: "{dataset}.clustering_info.json"
+      - id: passthrough.clusters
+        path: "{dataset}.clusters.tsv"
+      - id: passthrough.pca
+        path: "{dataset}.pca.tsv"
+    modules:
+      - id: passthrough-py
+        name: no-op passthrough
+        software_environment: metrics
+        repository:
+          url: https://github.com/mikageorges/passthrough-module
+          commit: 66d2e5f8998b88a2224df7fdd46ac4adf4aab5d0
   - id: metrics
     inputs:
       - data.clusters_truth
-      - methods.pca
-      - methods.clusters
-      - methods.timings
-      - methods.clustering_info
+      - passthrough.pca
+      - passthrough.clusters
+      - passthrough.timings
+      - passthrough.clustering_info
     outputs:
       - id: metrics.metrics
         path: "{dataset}.metrics.json"
@@ -120,5 +142,5 @@ stages:
         name: compute clustering metrics
         software_environment: metrics
         repository:
-          url: https://github.com/omni-eccb2026/metrics
-          commit: a97c3d8
+          url: https://github.com/mikageorges/metrics
+          commit: d2d169192d0ef47a39f57680c9fa8ffc09a774f7
